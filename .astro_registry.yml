@@ -1,0 +1,15 @@
+# These categories will be applied to all DAGs in the repo.
+categories:
+  - Data Processing
+# List of DAGs that should be published to the Astronomer Registry.
+dags:
+  - path: dags/airflow_variables_example.py
+  - path: dags/astro_python_sdk_example_1.py
+  - path: dags/astro_python_sdk_example_2.py
+  - path: dags/epo_example.py
+  - path: dags/pull_from_several_senders.py
+  - path: dags/python_virtual_env_example.py
+  - path: dags/repeated_mapping_xcom.py
+  - path: dags/standard_xcom_mixing_tf_traditional.py
+  - path: dags/taskflow_kpo_example.py
+  - path: dags/xcom_mapped_tasks.py

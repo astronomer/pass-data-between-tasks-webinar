@@ -1,0 +1,4 @@
+astro-sdk-python
+apache-airflow-providers-cncf-kubernetes
+pendulum
+astronomer-providers
