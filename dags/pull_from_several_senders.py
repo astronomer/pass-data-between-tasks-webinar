@@ -7,7 +7,7 @@ from airflow.operators.bash import BashOperator
     start_date=datetime(2023, 3, 27),
     schedule=None,
     catchup=False,
-    tags=["webinar", "TaskFlow", "dynamic task mapping", "traditional operators"],
+    tags=["TaskFlow", "dynamic task mapping", "traditional operators"],
 )
 def pull_from_several_senders():
 

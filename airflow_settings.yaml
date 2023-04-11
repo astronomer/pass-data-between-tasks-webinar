@@ -6,8 +6,9 @@
 # For issues create an issue ticket here: https://github.com/astronomer/astro-cli/issues
 
 
-# this connection connects to the postgres database hosting Airflow's metastore for a small example
-# please note that you should not use this database to store any data in a production context!!
+# this connection connects to the postgres database hosting Airflow's metastore
+# please note that using the metastore database is only suiting for sandbox examples in Astro projects that do not contain important data!
+# you should never run queries against your Airflow metastore database in production
 
 airflow:
   connections:

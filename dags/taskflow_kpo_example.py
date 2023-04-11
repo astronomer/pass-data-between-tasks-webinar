@@ -37,7 +37,7 @@ def taskflow_kpo_example():
 
     @task
     def downstream_task(output):
-        return "Fresh from the virtual env, the result is: " + f"{output}"
+        return "Fresh from the pod, the result is: " + f"{output}"
 
     downstream_task(kpo_task(upstream_task()))
 

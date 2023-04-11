@@ -5,7 +5,7 @@ from pendulum import datetime
 
 @dag(
     start_date=datetime(2023, 1, 1),
-    schedule="@daily",
+    schedule=None,
     catchup=False,
     tags=["Airflow Variables", "TaskFlow"],
 )
