@@ -1,3 +1,10 @@
+"""
+### Toy DAG showing how XCom can be used with dynamically mapped tasks
+
+This DAG contains an example for XCom use with dynamic task mapping with both
+TaskFlow tasks and traditional operators.
+"""
+
 from airflow.decorators import dag, task
 from pendulum import datetime
 from airflow.operators.bash import BashOperator
@@ -10,14 +17,12 @@ from airflow.operators.bash import BashOperator
     tags=["TaskFlow", "dynamic task mapping", "traditional operators"],
 )
 def xcom_mapped_tasks():
-
     # ------------------ #
     # Mapped sender task #
     # ------------------ #
 
     @task
     def mapped_sender_task(good_dog, **context):
-
         # the return value gets pushed to XCom implicitly
         # (with the key 'return_value' and the map_index of the mapped task)
         return good_dog + " deserves a treat"
@@ -32,7 +37,6 @@ def xcom_mapped_tasks():
 
     @task
     def receiver_task(xcom_received, **context):
-
         print(xcom_received)
 
     # pass the return value of one task to the next one to implicitly use XCom
@@ -44,7 +48,6 @@ def xcom_mapped_tasks():
 
     @task
     def receiver_task_2(xcom_received, **context):
-
         print(xcom_received[0] + "!")
 
     # pass the return value of one task to the next one to implicitly use XCom

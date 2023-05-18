@@ -1,3 +1,11 @@
+"""
+### Toy DAG showing 2 Astro SDK operators
+
+This DAG shows a simple toy ELT pipeline using the @aql.dataframe and 
+@aql.transform decorators. It needs a connection to a relational database supported
+by the Astro Python SDK. See: https://astro-sdk-python.readthedocs.io/en/stable/supported_databases.html
+"""
+
 from airflow.decorators import dag
 from pendulum import datetime
 import pandas as pd
@@ -5,6 +13,8 @@ import pandas as pd
 # Import decorators and classes from the SDK
 from astro import sql as aql
 from astro.sql.table import Table
+
+DB_CONN = "postgres_conn"
 
 
 @dag(
@@ -26,7 +36,7 @@ def astro_python_sdk_example_1():
 
     full_table = create_df(
         contents_col3=[10, 100, 1000],
-        output_table=Table(conn_id="postgres_conn"),
+        output_table=Table(conn_id=DB_CONN),
     )
 
     @aql.transform
@@ -34,19 +44,18 @@ def astro_python_sdk_example_1():
         return "SELECT col1, col3 FROM {{ in_table }};"
 
     col1_and_col3 = select_col1_and_col3(
-        full_table, output_table=Table(conn_id="postgres_conn")
+        full_table, output_table=Table(conn_id=DB_CONN)
     )
 
     @aql.dataframe
     def multiply(df: pd.DataFrame):
-
         df["multiplied_cols"] = df["col1"] * df["col3"]
         print(df)
         return df[["multiplied_cols"]]
 
     multiply(
         col1_and_col3,
-        output_table=Table(conn_id="postgres_conn", name="reporting_table"),
+        output_table=Table(conn_id=DB_CONN, name="reporting_table"),
     )
 
     aql.cleanup()

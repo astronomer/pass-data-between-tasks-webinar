@@ -1,3 +1,9 @@
+"""
+### Toy DAG showing basic use of XCom between TaskFlow tasks and traditional operators
+
+This DAG shows how to pass data between TaskFlow and traditional tasks using XCom.
+"""
+
 from airflow.decorators import dag, task
 from airflow.operators.bash import BashOperator
 from pendulum import datetime
@@ -10,7 +16,6 @@ from pendulum import datetime
     tags=["TaskFlow", "traditional operators"],
 )
 def standard_xcom_mixing_tf_traditional():
-
     # ---------------------------------------- #
     # Traditional to TaskFlow, implicit syntax #
     # ---------------------------------------- #

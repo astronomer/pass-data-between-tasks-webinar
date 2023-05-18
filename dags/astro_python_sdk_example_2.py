@@ -1,4 +1,12 @@
-from airflow.decorators import dag, task
+"""
+### Toy DAG showing how to use the @aql.dataframe decorator without a RDMS
+
+This DAG shows how the @aql.dataframe decorator can be leveraged even without
+access to a relational database to run transformations on pandas dataframes.
+"""
+
+
+from airflow.decorators import dag
 from pendulum import datetime
 
 # Import decorators and classes from the SDK
@@ -29,7 +37,7 @@ def astro_python_sdk_example_2():
         print(my_sum)
         return int(my_sum)
 
-    sum_col_1(my_table) 
+    sum_col_1(my_table)
 
 
 astro_python_sdk_example_2()

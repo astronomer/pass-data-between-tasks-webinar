@@ -1,3 +1,10 @@
+"""
+### Toy DAG using XCom with the @task.virtualenv decorator
+
+This DAG runs a simple task within the decorator version of the PythonVirtualenvOperator
+using an upstream value via XCom and returning another value to XCom.
+"""
+
 from airflow.decorators import dag, task
 import pendulum
 
@@ -20,7 +27,6 @@ def python_virtual_env_example():
         system_site_packages=True,
     )
     def python_virtual_env_operator_task(input):
-
         import numpy as np
 
         output = np.sum(input)

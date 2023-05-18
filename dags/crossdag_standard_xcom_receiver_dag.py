@@ -1,3 +1,10 @@
+"""
+### DAG pulling XCom from another DAG
+
+This DAG pulls two XCom pushed from within another DAG.
+"""
+
+
 from airflow.decorators import dag, task
 from pendulum import datetime
 
@@ -6,7 +13,6 @@ from pendulum import datetime
 def crossdag_standard_xcom_receiver_dag():
     @task
     def receiver_task(**context):
-
         # pull values from XCom that were created by another DAG
         # setting include_prior_dates = True is necessary unless sender and receiver DAG have the exact same execution datetime
         xcom_one = context["ti"].xcom_pull(
