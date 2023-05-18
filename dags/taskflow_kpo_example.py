@@ -1,3 +1,10 @@
+"""
+### Toy DAG using XCom with the @task.kubernetes decorator
+
+This DAG shows a simple implementation of the @task.kubernetes decorator pulling from and 
+pushing to XCom. Note that you will need to run this task on a Kubernetes cluster.
+"""
+
 from airflow.decorators import dag, task
 from airflow.configuration import conf
 from pendulum import datetime
@@ -20,7 +27,8 @@ def taskflow_kpo_example():
         name="airflow-test-pod-1",
         task_id="kpo_task",
         namespace=conf.get("kubernetes", "NAMESPACE"),
-        in_cluster=True,
+        in_cluster=True,  # if you are not running Airflow on K8s already you will need
+        # to adjust the KPO parameters to connect to your cluster
         get_logs=True,
         is_delete_operator_pod=True,
         # make sure XComs are pushed

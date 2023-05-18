@@ -1,3 +1,9 @@
+"""
+### DAG pushing XCom to be pulled from another DAG
+
+This DAG pushes two XCom to be pulled from another DAG.
+"""
+
 from airflow.decorators import dag, task
 from pendulum import datetime
 

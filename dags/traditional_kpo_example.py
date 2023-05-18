@@ -1,9 +1,20 @@
+"""
+### Toy DAG using XCom with the KubernetesPodOperator
+
+This DAG shows a simple implementation of the KubernetsPodOperator pulling from and 
+pushing to XCom. Note that you will need to run this task on a Kubernetes cluster
+and additional configuration of the Docker image is needed to push to XCom.
+(explained in a code comment.)
+"""
+
 from airflow.decorators import dag, task
 from airflow.configuration import conf
 from airflow.providers.cncf.kubernetes.operators.kubernetes_pod import (
     KubernetesPodOperator,
 )
 from pendulum import datetime
+
+YOUR_DOCKER_IMAGE = "your docker image"
 
 
 @dag(
@@ -20,11 +31,12 @@ def traditional_kpo_example():
     kpo_task = KubernetesPodOperator(
         task_id="kpo_task",
         name="airflow-test-pod-2",
-        image="<YOUR IMAGE>",
+        image=YOUR_DOCKER_IMAGE,
         # pass in XCom via ENV
         env_vars={"MY_VAR": "{{ ti.xcom_pull(task_ids='upstream_task')}}"},
         namespace=conf.get("kubernetes", "NAMESPACE"),
-        in_cluster=True,
+        in_cluster=True,  # if you are not running Airflow on K8s already you will need
+        # to adjust the KPO parameters to connect to your cluster
         get_logs=True,
         log_events_on_failure=True,
         is_delete_operator_pod=True,

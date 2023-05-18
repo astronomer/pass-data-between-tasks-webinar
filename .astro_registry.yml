@@ -11,5 +11,8 @@ dags:
   - path: dags/python_virtual_env_example.py
   - path: dags/repeated_mapping_xcom.py
   - path: dags/standard_xcom_mixing_tf_traditional.py
+  - path: dags/standard_xcom_taskflow.py
+  - path: dags/standard_xcom_traditional.py
+  - path: dags/traditional_kpo_example.py
   - path: dags/taskflow_kpo_example.py
   - path: dags/xcom_mapped_tasks.py

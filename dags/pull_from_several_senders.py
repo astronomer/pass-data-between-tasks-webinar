@@ -1,3 +1,11 @@
+"""
+### Toy DAG showing how to pull specific XCom from a dynamically mapped task
+
+This DAG shows how you can pull specific XCom from a dynamically mapped task, as well
+as how you can pull XCom from two different tasks at the same time.
+"""
+
+
 from airflow.decorators import dag, task
 from pendulum import datetime
 from airflow.operators.bash import BashOperator
@@ -10,14 +18,12 @@ from airflow.operators.bash import BashOperator
     tags=["TaskFlow", "dynamic task mapping", "traditional operators"],
 )
 def pull_from_several_senders():
-
     # ------------------ #
     # Mapped sender task #
     # ------------------ #
 
     @task
     def mapped_sender_task(good_dog, **context):
-
         # the return value gets pushed to XCom implicitly
         # (with the key 'return_value' and the map_index of the mapped task)
         return good_dog + " deserves a treat"

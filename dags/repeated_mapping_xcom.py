@@ -1,3 +1,11 @@
+"""
+### Toy DAG showing how to map over an upstream dynamically mapped task
+
+This DAG contains an example for serial dynamic task mapping both using 
+TaskFlow and traditional operators. 
+Learn more at: https://docs.astronomer.io/learn/dynamic-tasks#repeated-mapping
+"""
+
 from airflow.decorators import dag, task
 from airflow.operators.python import PythonOperator
 from pendulum import datetime
@@ -10,7 +18,6 @@ from pendulum import datetime
     tags=["traditional operators", "TaskFlow"],
 )
 def repeated_mapping_xcom():
-
     # -------- #
     # TaskFlow #
     # -------- #

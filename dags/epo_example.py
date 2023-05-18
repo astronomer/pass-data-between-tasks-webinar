@@ -1,3 +1,10 @@
+"""
+### Toy DAG using XCom with the @task.external_python decorator
+
+This DAG runs a simple task within the decorator version of the ExternalPythonOperator
+using an upstream value via XCom and returning another value to XCom.
+"""
+
 from airflow.decorators import dag, task
 import pendulum
 
@@ -13,11 +20,8 @@ def epo_example():
     def upstream_task():
         return [1, 2, 3]
 
-    @task.external_python(
-        python='/home/astro/.pyenv/versions/numpy_env/bin/python'
-    )
+    @task.external_python(python="/home/astro/.pyenv/versions/numpy_env/bin/python")
     def external_python_operator_task(input):
-
         import numpy as np
 
         print(input)
