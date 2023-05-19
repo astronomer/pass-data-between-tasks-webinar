@@ -1,5 +1,5 @@
 """
-### Toy DAG showing basic use of XCom between TaskFlow tasks and traditional operators
+### Use of XCom between TaskFlow tasks and traditional operators
 
 This DAG shows how to pass data between TaskFlow and traditional tasks using XCom.
 """

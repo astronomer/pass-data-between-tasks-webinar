@@ -1,5 +1,5 @@
 """
-### Toy DAG showing how to use the @aql.dataframe decorator without a RDMS
+### Use the @aql.dataframe decorator without an Airflow connection
 
 This DAG shows how the @aql.dataframe decorator can be leveraged even without
 access to a relational database to run transformations on pandas dataframes.

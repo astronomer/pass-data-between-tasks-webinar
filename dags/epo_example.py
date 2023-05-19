@@ -1,16 +1,16 @@
 """
-### Toy DAG using XCom with the @task.external_python decorator
+### Use XCom with the @task.external_python decorator
 
 This DAG runs a simple task within the decorator version of the ExternalPythonOperator
 using an upstream value via XCom and returning another value to XCom.
 """
 
 from airflow.decorators import dag, task
-import pendulum
+from pendulum import datetime
 
 
 @dag(
-    start_date=pendulum.datetime(2022, 10, 10, tz="UTC"),
+    start_date=datetime(2023, 5, 1),
     schedule=None,
     catchup=False,
     tags=["@task.external_python", "TaskFlow"],

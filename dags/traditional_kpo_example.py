@@ -1,5 +1,5 @@
 """
-### Toy DAG using XCom with the KubernetesPodOperator
+### Use XCom with the KubernetesPodOperator
 
 This DAG shows a simple implementation of the KubernetsPodOperator pulling from and 
 pushing to XCom. Note that you will need to run this task on a Kubernetes cluster

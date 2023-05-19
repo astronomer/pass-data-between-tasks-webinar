@@ -1,5 +1,5 @@
 """
-### Toy DAG showing 2 Astro SDK operators
+### Use Pandas and SQL on relational data with the Astro Python SDK
 
 This DAG shows a simple toy ELT pipeline using the @aql.dataframe and 
 @aql.transform decorators. It needs a connection to a relational database supported

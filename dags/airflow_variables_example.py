@@ -1,8 +1,8 @@
 """
-### Toy DAG showing how to set, update and retrive an Airflow Variable programmatically
+### Set, update and retrieve an Airflow Variable programmatically
 
 Airflow Variables are useful for short values that rarely change and have to be 
-accessed by several DAGs and Dagruns. You can set them in the Airflow UI under
+accessed by several DAGs and DAG runs. You can set them in the Airflow UI under
 **Admin** -> **Variables**, in the `airflow_settings.yml`, via the `airflow variables`
 CLI command or programmatically as shown in this DAG.
 Learn more at: https://airflow.apache.org/docs/apache-airflow/stable/howto/variable.html

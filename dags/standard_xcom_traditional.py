@@ -1,5 +1,5 @@
 """
-### Toy DAG showing explicit and implicit use of XCom with traditional operators
+### Push and pull XComs implicitly and explicitly with traditional operators
 
 This DAG shows how to pass data between traditional operators using XCom.
 """

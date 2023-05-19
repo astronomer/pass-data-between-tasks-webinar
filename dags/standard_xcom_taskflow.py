@@ -1,5 +1,5 @@
 """
-### Toy DAG showing explicit and implicit use of XCom with TaskFlow tasks
+### Push and pull XComs implicitly and explicitly with TaskFlow tasks
 
 This DAG shows how to pass data between TaskFlow tasks using XCom.
 """

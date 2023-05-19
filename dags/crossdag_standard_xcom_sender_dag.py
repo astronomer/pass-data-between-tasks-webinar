@@ -1,5 +1,5 @@
 """
-### DAG pushing XCom to be pulled from another DAG
+### Push values to XCom
 
 This DAG pushes two XCom to be pulled from another DAG.
 """

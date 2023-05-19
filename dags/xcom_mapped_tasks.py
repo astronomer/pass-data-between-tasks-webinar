@@ -1,5 +1,5 @@
 """
-### Toy DAG showing how XCom can be used with dynamically mapped tasks
+### Use XCom with dynamically mapped tasks
 
 This DAG contains an example for XCom use with dynamic task mapping with both
 TaskFlow tasks and traditional operators.

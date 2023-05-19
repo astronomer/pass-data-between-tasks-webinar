@@ -1,5 +1,5 @@
 """
-### Toy DAG showing how to pull specific XCom from a dynamically mapped task
+### Pull specific XCom from a dynamically mapped task
 
 This DAG shows how you can pull specific XCom from a dynamically mapped task, as well
 as how you can pull XCom from two different tasks at the same time.

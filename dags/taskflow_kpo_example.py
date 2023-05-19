@@ -1,5 +1,5 @@
 """
-### Toy DAG using XCom with the @task.kubernetes decorator
+### Use XCom with the @task.kubernetes decorator
 
 This DAG shows a simple implementation of the @task.kubernetes decorator pulling from and 
 pushing to XCom. Note that you will need to run this task on a Kubernetes cluster.

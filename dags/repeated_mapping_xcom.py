@@ -1,5 +1,5 @@
 """
-### Toy DAG showing how to map over an upstream dynamically mapped task
+### Dynamically map over another dynamically mapped task
 
 This DAG contains an example for serial dynamic task mapping both using 
 TaskFlow and traditional operators. 
